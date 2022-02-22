@@ -34,7 +34,7 @@ const restricted = (req, res, next) => {
 };
 
 const only = (role_name) => (req, res, next) => {
-  if (role_name !== req.decodedJwt.role) {
+  if (role_name !== req.decodedJwt.role_name) {
     res.status(403).json({ message: "This is not for you" });
     req.decodedJwt = "";
   } else {
